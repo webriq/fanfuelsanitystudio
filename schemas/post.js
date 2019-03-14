@@ -35,7 +35,10 @@ export default {
       name: "isReady",
       type: "boolean",
       title: "Ready To Publish?",
-      validation: Rule => Rule.required().error("Should be set to ready when published!")
+      description:
+        "Toggle on so you can pick it up later and publish. Removes item here from being raw.",
+      validation: Rule =>
+        Rule.required().error("Set to ready so you can publish or pick it up later!")
     },
     {
       name: "publishedAt",
