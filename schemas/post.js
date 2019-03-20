@@ -31,15 +31,7 @@ export default {
       title: "Body",
       type: "markdown"
     },
-    {
-      name: "isReady",
-      type: "boolean",
-      title: "Ready To Publish?",
-      description:
-        "Toggle on so you can pick it up later and publish. Removes item here from being raw.",
-      validation: Rule =>
-        Rule.required().error("Set to ready so you can publish or pick it up later!")
-    },
+
     {
       name: "publishedAt",
       title: "Published At",
@@ -64,9 +56,25 @@ export default {
       of: [{ type: "reference", to: { type: "category" } }]
     },
     {
+      name: "isReady",
+      type: "boolean",
+      title: "Ready To Publish?",
+      description:
+        "Toggle on so you can pick it up later and publish. Removes item here from being raw.",
+      validation: Rule =>
+        Rule.required().error("Set to ready so you can publish or pick it up later!")
+    },
+    {
       name: "source_url",
       title: "Source URL",
-      type: "string"
+      type: "string",
+      readOnly: true
+    },
+    {
+      name: "delete",
+      type: "boolean",
+      readOnly: true,
+      hidden: true
     }
   ],
   orderings: [
