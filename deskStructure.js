@@ -71,8 +71,8 @@ export default () =>
         .schemaType("category")
         .child(S.documentTypeList("category").title("Categories")),
       S.listItem()
-        .title("People")
+        .title("Authors")
         .schemaType("person")
-        .child(S.documentTypeList("person").title("People"))
+        .child(S.documentTypeList("person").title("Person"))
       // the rest of the structure
     ]);
