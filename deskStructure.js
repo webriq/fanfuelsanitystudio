@@ -65,7 +65,14 @@ export default () =>
                     .filter("_type == $type && defined(isReady)")
                 )
             ])
-        )
-
+        ),
+      S.listItem()
+        .title("Categories")
+        .schemaType("category")
+        .child(S.documentTypeList("category").title("Categories")),
+      S.listItem()
+        .title("People")
+        .schemaType("person")
+        .child(S.documentTypeList("person").title("People"))
       // the rest of the structure
     ]);

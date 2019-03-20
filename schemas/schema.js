@@ -10,11 +10,20 @@ import person from "./person";
 import blockContent from "./blockContent";
 import postAuthor from "./postAuthor";
 import blockText from "./blockText";
+import category from "./category";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   name: "default",
   // Then proceed to concatenate our our document type
   // to the ones provided by any plugins that are installed
-  types: schemaTypes.concat([post, featuredImage, person, blockContent, blockText, postAuthor])
+  types: schemaTypes.concat([
+    post,
+    featuredImage,
+    person,
+    blockContent,
+    blockText,
+    postAuthor,
+    category
+  ])
 });

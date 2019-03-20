@@ -51,6 +51,22 @@ export default {
       name: "excerpt",
       title: "Excerpt",
       type: "markdown"
+    },
+    {
+      name: "author",
+      title: "Author",
+      type: "postAuthor"
+    },
+    {
+      name: "categories",
+      title: "Categories",
+      type: "array",
+      of: [{ type: "reference", to: { type: "category" } }]
+    },
+    {
+      name: "source_url",
+      title: "Source URL",
+      type: "string"
     }
   ],
   orderings: [
