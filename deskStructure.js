@@ -1,6 +1,6 @@
 import S from "@sanity/desk-tool/structure-builder";
 import { MdMoveToInbox } from "react-icons/md";
-import moment from "moment";
+import { startOfToday, startOfTomorrow } from "date-fns";
 
 export default () =>
   S.list()
@@ -53,13 +53,8 @@ export default () =>
                     .params({
                       type: "post",
                       isReady: true,
-                      todayDate: moment()
-                        .startOf("day")
-                        .toISOString(),
-                      tomorrowDate: moment()
-                        .add(1, "day")
-                        .startOf("day")
-                        .toISOString()
+                      todayDate: startOfToday(),
+                      tomorrowDate: startOfTomorrow()
                     })
                 ),
               S.listItem()
