@@ -1,7 +1,6 @@
 import S from "@sanity/desk-tool/structure-builder";
 import { MdMoveToInbox } from "react-icons/md";
-
-console.log(S);
+import moment from "moment";
 
 export default () =>
   S.list()
@@ -43,7 +42,28 @@ export default () =>
                     })
                 ),
               S.listItem()
-                .title("Published")
+                .title("Published Today")
+                .schemaType("post")
+                .child(
+                  S.documentList()
+                    .title("Today")
+                    .filter(
+                      "_type == $type && (defined(isReady) && isReady == $isReady) && !(_id in path('drafts.**')) && (publishedAt >= $todayDate && publishedAt <= $tomorrowDate)"
+                    )
+                    .params({
+                      type: "post",
+                      isReady: true,
+                      todayDate: moment()
+                        .startOf("day")
+                        .toISOString(),
+                      tomorrowDate: moment()
+                        .add(1, "day")
+                        .startOf("day")
+                        .toISOString()
+                    })
+                ),
+              S.listItem()
+                .title("All Published")
                 .schemaType("post")
                 .child(
                   S.documentList()

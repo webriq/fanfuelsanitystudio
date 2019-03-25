@@ -2,7 +2,7 @@ export default {
   name: "person",
   title: "Person",
   type: "document",
-  liveEdit: false,
+  liveEdit: true,
   fields: [
     {
       name: "name",
@@ -30,15 +30,7 @@ export default {
     {
       name: "bio",
       title: "Bio",
-      type: "array",
-      of: [
-        {
-          title: "Block",
-          type: "block",
-          styles: [{ title: "Normal", value: "normal" }],
-          lists: []
-        }
-      ]
+      type: "markdown"
     }
   ],
   preview: {
