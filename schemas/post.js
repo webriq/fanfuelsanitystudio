@@ -65,6 +65,16 @@ export default {
         Rule.required().error("Set to ready so you can publish or pick it up later!")
     },
     {
+      name: "type",
+      title: "Type",
+      type: "string",
+      options: {
+        list: ["List", "Fun/Interesting Facts", "Players Birthday", "Best Gifts"],
+        layout: "radio",
+        direction: "horizontal"
+      }
+    },
+    {
       name: "source_url",
       title: "Source URL",
       type: "string",
@@ -96,12 +106,12 @@ export default {
       image: "featuredImage",
       state: "state"
     },
-    prepare({ title = "No title", publishedAt, image }) {
+    prepare({ title = "No title", publishedAt, image, type = "No type" }) {
       return {
         title,
         subtitle: publishedAt
-          ? new Date(publishedAt).toLocaleDateString()
-          : "Missing publishing date",
+          ? new Date(publishedAt).toLocaleDateString() + " - " + type
+          : "Missing publishing date" + " - " + type,
         media: image
       };
     }
