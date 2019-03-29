@@ -104,7 +104,7 @@ export default {
       title: "title",
       publishedAt: "publishedAt",
       image: "featuredImage",
-      state: "state"
+      type: "type"
     },
     prepare({ title = "No title", publishedAt, image, type = "No type" }) {
       return {
