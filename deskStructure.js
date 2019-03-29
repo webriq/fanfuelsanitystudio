@@ -73,10 +73,10 @@ export default () =>
                 ),
               S.listItem()
                 .schemaType("post")
-                .title("All articles")
+                .title("All Articles")
                 .child(
                   S.documentTypeList("post")
-                    .title("All articles")
+                    .title("All Articles")
                     .filter("_type == $type && defined(isReady)")
                 )
             ])
