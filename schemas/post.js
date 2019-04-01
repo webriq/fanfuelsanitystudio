@@ -92,8 +92,9 @@ export default {
       description: "This item's original data sent saved in JSON format below...",
       type: "code",
       options: {
-        language: "js"
-      }
+        language: "json"
+      },
+      readOnly: true
     },
     {
       name: "delete",
