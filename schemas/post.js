@@ -69,9 +69,15 @@ export default {
       title: "Type",
       type: "string",
       options: {
-        list: ["List", "Fun/Interesting Facts", "Players Birthday", "Best Gifts"],
-        layout: "radio",
-        direction: "horizontal"
+        list: [
+          "List",
+          "Fun Facts and Stories",
+          "Famous Retired Players",
+          "Best Gifts",
+          "Champ Chest",
+          "Other"
+        ],
+        layout: "radio"
       }
     },
     {
