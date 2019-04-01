@@ -81,6 +81,15 @@ export default {
       readOnly: true
     },
     {
+      name: "original_data",
+      title: "Original Data",
+      description: "This item's original data sent saved in JSON format below...",
+      type: "code",
+      options: {
+        language: "js"
+      }
+    },
+    {
       name: "delete",
       type: "boolean",
       readOnly: true,
