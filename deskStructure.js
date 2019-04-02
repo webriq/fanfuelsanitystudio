@@ -1,5 +1,14 @@
 import S from "@sanity/desk-tool/structure-builder";
-import { MdMoveToInbox } from "react-icons/md";
+import {
+  FiCalendar,
+  FiInbox,
+  FiFileText,
+  FiPieChart,
+  FiUser,
+  FiDatabase,
+  FiLayers,
+  FiCheck
+} from "react-icons/fi";
 import { startOfToday, startOfTomorrow } from "date-fns";
 
 export default () =>
@@ -9,6 +18,7 @@ export default () =>
       S.listItem()
         .title("Scraped (RAW)")
         .schemaType("post")
+        .icon(FiInbox)
         .child(
           S.documentList()
             .title("Raw Items")
@@ -22,12 +32,14 @@ export default () =>
         ),
       S.listItem()
         .title("Articles")
+        .icon(FiFileText)
         .child(
           S.list()
             .title("Status")
             .items([
               S.listItem()
                 .title("Ready To Publish")
+                .icon(FiCheck)
                 .schemaType("post")
                 .child(
                   S.documentList()
@@ -44,6 +56,7 @@ export default () =>
               S.listItem()
                 .title("Published Today")
                 .schemaType("post")
+                .icon(FiCalendar)
                 .child(
                   S.documentList()
                     .title("Today")
@@ -60,6 +73,7 @@ export default () =>
               S.listItem()
                 .title("All Published")
                 .schemaType("post")
+                .icon(FiLayers)
                 .child(
                   S.documentList()
                     .title("Published")
@@ -72,21 +86,24 @@ export default () =>
                     })
                 ),
               S.listItem()
-                .schemaType("post")
                 .title("All Articles")
+                .icon(FiDatabase)
+                .schemaType("post")
                 .child(
                   S.documentTypeList("post")
-                    .title("All Articles")
+                    .title("All")
                     .filter("_type == $type && defined(isReady)")
                 )
             ])
         ),
       S.listItem()
         .title("Categories")
+        .icon(FiPieChart)
         .schemaType("category")
         .child(S.documentTypeList("category").title("Categories")),
       S.listItem()
         .title("Authors")
+        .icon(FiUser)
         .schemaType("person")
         .child(S.documentTypeList("person").title("Person"))
       // the rest of the structure
