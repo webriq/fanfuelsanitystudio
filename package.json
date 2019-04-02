@@ -8,6 +8,8 @@
   "license": "UNLICENSED",
   "scripts": {
     "start": "sanity start --port 4444",
+    "deploy": "sanity deploy",
+    "deploy graphql": "sanity graphql deploy",
     "test": "sanity check"
   },
   "keywords": [
