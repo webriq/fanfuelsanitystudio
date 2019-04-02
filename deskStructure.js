@@ -7,7 +7,8 @@ import {
   FiUser,
   FiDatabase,
   FiLayers,
-  FiCheck
+  FiCheck,
+  FiTrash
 } from "react-icons/fi";
 import { startOfToday, startOfTomorrow } from "date-fns";
 
@@ -23,11 +24,12 @@ export default () =>
           S.documentList()
             .title("Raw Items")
             .filter(
-              "_type == $type && (!defined(isReady) || (defined(isReady) && isReady == $isReady))"
+              "_type == $type && (!defined(isReady) || (defined(isReady) && isReady == $isReady)) && (!defined(isDiscarded) || (defined(isDiscarded) && isDiscarded == $isDiscarded))"
             )
             .params({
               type: "post",
-              isReady: false
+              isReady: false,
+              isDiscarded: false
             })
         ),
       S.listItem()
@@ -45,11 +47,12 @@ export default () =>
                   S.documentList()
                     .title("Ready")
                     .filter(
-                      "_type == $type && (defined(isReady) && isReady == $isReady) && _id in path('drafts.**')"
+                      "_type == $type && (defined(isReady) && isReady == $isReady) && _id in path('drafts.**') && (!defined(isDiscarded) || (defined(isDiscarded) && isDiscarded == $isDiscarded))"
                     )
                     .params({
                       type: "post",
                       isReady: true,
+                      isDiscarded: false,
                       state: "drafts"
                     })
                 ),
@@ -61,11 +64,12 @@ export default () =>
                   S.documentList()
                     .title("Today")
                     .filter(
-                      "_type == $type && (defined(isReady) && isReady == $isReady) && !(_id in path('drafts.**')) && (publishedAt >= $todayDate && publishedAt <= $tomorrowDate)"
+                      "_type == $type && (defined(isReady) && isReady == $isReady) && !(_id in path('drafts.**')) && (publishedAt >= $todayDate && publishedAt <= $tomorrowDate) && (!defined(isDiscarded) || (defined(isDiscarded) && isDiscarded == $isDiscarded))"
                     )
                     .params({
                       type: "post",
                       isReady: true,
+                      isDiscarded: false,
                       todayDate: startOfToday(),
                       tomorrowDate: startOfTomorrow()
                     })
@@ -78,10 +82,11 @@ export default () =>
                   S.documentList()
                     .title("Published")
                     .filter(
-                      "_type == $type && (defined(isReady) && isReady == $isReady) && !(_id in path('drafts.**'))"
+                      "_type == $type && (defined(isReady) && isReady == $isReady) && !(_id in path('drafts.**')) && (!defined(isDiscarded) || (defined(isDiscarded) && isDiscarded == $isDiscarded))"
                     )
                     .params({
                       type: "post",
+                      isDiscarded: false,
                       isReady: true
                     })
                 ),
@@ -92,7 +97,28 @@ export default () =>
                 .child(
                   S.documentTypeList("post")
                     .title("All")
-                    .filter("_type == $type && defined(isReady)")
+                    .filter(
+                      "_type == $type && defined(isReady) && (!defined(isDiscarded) || (defined(isDiscarded) && isDiscarded == $isDiscarded))"
+                    )
+                    .params({
+                      type: "post",
+                      isDiscarded: false
+                    })
+                ),
+              S.listItem()
+                .title("Trashed")
+                .icon(FiTrash)
+                .schemaType("post")
+                .child(
+                  S.documentTypeList("post")
+                    .title("Trashed")
+                    .filter(
+                      "_type == $type && (defined(isDiscarded) && isDiscarded == $isDiscarded)"
+                    )
+                    .params({
+                      type: "post",
+                      isDiscarded: true
+                    })
                 )
             ])
         ),
