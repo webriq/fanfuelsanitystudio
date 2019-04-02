@@ -70,8 +70,8 @@ export default {
       type: "string",
       options: {
         list: [
-          "List",
-          "Fun Facts and Stories",
+          "Lists",
+          "Fun Facts or Stories",
           "Famous Retired Players",
           "Best Gifts",
           "Champ Chest",
