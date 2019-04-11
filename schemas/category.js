@@ -20,6 +20,12 @@ export default {
       options: {
         hotspot: true
       }
+    },
+    {
+      name: "subcategories",
+      title: "Sub Categories",
+      type: "array",
+      of: [{ type: "reference", to: { type: "subcategory" } }]
     }
   ],
   liveEdit: true

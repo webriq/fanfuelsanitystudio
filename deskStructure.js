@@ -21,7 +21,7 @@ export default () =>
         .schemaType("post")
         .icon(FiInbox)
         .child(
-          S.documentList()
+          S.documentTypeList("post")
             .title("Raw Items")
             .filter(
               "_type == $type && (!defined(isReady) || (defined(isReady) && isReady == $isReady)) && (!defined(isDiscarded) || (defined(isDiscarded) && isDiscarded == $isDiscarded))"
@@ -44,7 +44,7 @@ export default () =>
                 .icon(FiCheck)
                 .schemaType("post")
                 .child(
-                  S.documentList()
+                  S.documentTypeList("post")
                     .title("Ready")
                     .filter(
                       "_type == $type && (defined(isReady) && isReady == $isReady) && _id in path('drafts.**') && (!defined(isDiscarded) || (defined(isDiscarded) && isDiscarded == $isDiscarded))"
@@ -61,7 +61,7 @@ export default () =>
                 .schemaType("post")
                 .icon(FiCalendar)
                 .child(
-                  S.documentList()
+                  S.documentTypeList("post")
                     .title("Today")
                     .filter(
                       "_type == $type && (defined(isReady) && isReady == $isReady) && !(_id in path('drafts.**')) && (publishedAt >= $todayDate && publishedAt <= $tomorrowDate) && (!defined(isDiscarded) || (defined(isDiscarded) && isDiscarded == $isDiscarded))"
@@ -79,7 +79,7 @@ export default () =>
                 .schemaType("post")
                 .icon(FiLayers)
                 .child(
-                  S.documentList()
+                  S.documentTypeList("post")
                     .title("Published")
                     .filter(
                       "_type == $type && (defined(isReady) && isReady == $isReady) && !(_id in path('drafts.**')) && (!defined(isDiscarded) || (defined(isDiscarded) && isDiscarded == $isDiscarded))"
@@ -127,6 +127,11 @@ export default () =>
         .icon(FiPieChart)
         .schemaType("category")
         .child(S.documentTypeList("category").title("Categories")),
+      S.listItem()
+        .title("SubCategories")
+        .icon(FiPieChart)
+        .schemaType("subcategory")
+        .child(S.documentTypeList("subcategory").title("SubCategory")),
       S.listItem()
         .title("Authors")
         .icon(FiUser)

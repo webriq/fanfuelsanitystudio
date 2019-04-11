@@ -15,7 +15,9 @@ export default {
       type: "slug",
       description: "Friendly URL text for SEO",
       validation: Rule =>
-        Rule.required().error("Click button 'Generate' to auto-create based on title!"),
+        Rule.required().error(
+          "Click button 'Generate' to auto-create based on title!"
+        ),
       options: {
         source: "title",
         maxLength: 120
@@ -34,9 +36,11 @@ export default {
     {
       name: "publishedAt",
       title: "Published At",
-      description: "You can use this field to schedule post where you show them",
+      description:
+        "You can use this field to schedule post where you show them",
       type: "datetime",
-      validation: Rule => Rule.required().error("All articles need a published date!")
+      validation: Rule =>
+        Rule.required().error("All articles need a published date!")
     },
     {
       name: "excerpt",
@@ -61,7 +65,9 @@ export default {
       description:
         "Toggle on so you can pick it up later and publish. Removes item from being RAW.",
       validation: Rule =>
-        Rule.required().error("Set to ready so you can publish or pick it up later!")
+        Rule.required().error(
+          "Set to ready so you can publish or pick it up later!"
+        )
     },
     {
       name: "isDiscarded",
@@ -95,7 +101,8 @@ export default {
     {
       name: "original_data",
       title: "Original Data",
-      description: "This item's original data sent saved in JSON format below...",
+      description:
+        "This item's original data sent saved in JSON format below...",
       type: "code",
       options: {
         language: "json"
@@ -111,14 +118,20 @@ export default {
   ],
   orderings: [
     {
-      title: "Publishing Date new –> old",
+      title: "Publishing Date old –> new",
       name: "publishingDateAsc",
-      by: [{ field: "publishedAt", direction: "asc" }, { field: "title", direction: "asc" }]
+      by: [
+        { field: "publishedAt", direction: "asc" },
+        { field: "title", direction: "asc" }
+      ]
     },
     {
-      title: "Publishing Date old -> new",
+      title: "Publishing Date new -> old",
       name: "publishingDateDesc",
-      by: [{ field: "publishedAt", direction: "desc" }, { field: "title", direction: "asc" }]
+      by: [
+        { field: "publishedAt", direction: "desc" },
+        { field: "title", direction: "asc" }
+      ]
     }
   ],
   preview: {
