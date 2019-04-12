@@ -22,6 +22,19 @@ export default {
       }
     },
     {
+      name: "Ads",
+      title: "Ads",
+      type: "image",
+      options: {
+        hotspot: true
+      }
+    },
+    {
+      name: "AdsLink",
+      title: "Ads Link",
+      type: "string"
+    },
+    {
       name: "subcategories",
       title: "Sub Categories",
       type: "array",
