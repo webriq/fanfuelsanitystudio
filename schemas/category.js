@@ -22,7 +22,7 @@ export default {
       }
     },
     {
-      name: "Ads",
+      name: "ads",
       title: "Ads",
       type: "image",
       options: {
@@ -30,7 +30,7 @@ export default {
       }
     },
     {
-      name: "AdsLink",
+      name: "adsLink",
       title: "Ads Link",
       type: "string"
     },
