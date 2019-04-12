@@ -30,7 +30,7 @@ export default {
       }
     },
     {
-      name: "adsLink",
+      name: "adslink",
       title: "Ads Link",
       type: "string"
     },
