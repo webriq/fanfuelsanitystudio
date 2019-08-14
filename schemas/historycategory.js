@@ -14,10 +14,10 @@ export default {
 			type: "string"
 		},
 		{
-			name: "categories",
-			title: "Categories",
+			name: "subcategories",
+			title: "SubCategories",
 			type: "array",
-			of: [{ type: "reference", to: { type: "category" } }]
+			of: [{ type: "reference", to: { type: "subcategory" } }]
 		},
 		{
 			name: "description",
