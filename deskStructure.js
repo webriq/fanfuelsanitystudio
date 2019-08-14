@@ -133,6 +133,11 @@ export default () =>
         .schemaType("subcategory")
         .child(S.documentTypeList("subcategory").title("SubCategory")),
       S.listItem()
+        .title("HistoryCategories")
+        .icon(FiPieChart)
+        .schemaType("historycategory")
+        .child(S.documentTypeList("historycategory").title("HistoryCategory")),
+      S.listItem()
         .title("Authors")
         .icon(FiUser)
         .schemaType("person")

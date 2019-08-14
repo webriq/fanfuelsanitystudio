@@ -12,6 +12,7 @@ import postAuthor from "./postAuthor";
 import blockText from "./blockText";
 import category from "./category";
 import subcategory from "./subcategory";
+import historycategory from "./historycategory";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -26,6 +27,7 @@ export default createSchema({
     blockText,
     postAuthor,
     category,
-    subcategory
+    subcategory,
+    historycategory
   ])
 });

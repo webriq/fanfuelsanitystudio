@@ -65,6 +65,12 @@ export default {
       of: [{ type: "reference", to: { type: "subcategory" } }]
     },
     {
+      name: "historycategory",
+      title: "HistoryCategory",
+      type: "array",
+      of: [{ type: "reference", to: { type: "historycategory" } }]
+    },
+    {
       name: "isReady",
       type: "boolean",
       title: "Ready To Publish?",
