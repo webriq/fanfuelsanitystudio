@@ -9,6 +9,11 @@ export default {
 			type: "string"
 		},
 		{
+			name: "listid",
+			title: "List ID",
+			type: "string"
+		},
+		{
 			name: "description",
 			title: "Description",
 			type: "text"
