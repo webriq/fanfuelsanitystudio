@@ -31,6 +31,12 @@ export default {
 			options: {
 				hotspot: true
 			}
+		},
+		{
+			name: "historycategory",
+			title: "HistoryCategory",
+			type: "array",
+			of: [{ type: "reference", to: { type: "historycategory" } }]
 		}
 	],
 	liveEdit: false
