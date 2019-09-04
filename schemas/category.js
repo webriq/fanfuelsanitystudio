@@ -30,6 +30,14 @@ export default {
       }
     },
     {
+      name: "headerAds",
+      title: "Header Ads",
+      type: "image",
+      options: {
+        hotspot: true
+      }
+    },
+    {
       name: "adslink",
       title: "Ads Link",
       type: "string"
